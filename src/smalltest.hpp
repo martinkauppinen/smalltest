@@ -89,34 +89,34 @@ private:
 
 } // smalltest
 
-#define RUN_SMALLTEST() smalltest::TestRegistry *smalltest::TestRegistry::instance_ = nullptr; \
+#define RUN_SMALLTEST() smalltest::TestRegistry *smalltest::TestRegistry::instance_ = nullptr;  \
     int main() { return smalltest::TestRegistry::GetInstance()->RunTests(); }
 
-#define UNIT_TEST(test_name)                                                                \
-    class test_name : public ::smalltest::UnitTest {                                         \
-    public:                                                                                 \
-        test_name()                                                                         \
-        {                                                                                   \
-            smalltest::TestRegistry::GetInstance()->RegisterTest(this, #test_name);          \
-        }                                                                                   \
-    protected:                                                                              \
-        void Run() override;                                                                \
-    } test_name;                                                                            \
+#define UNIT_TEST(test_name)                                                                    \
+    class test_name : public ::smalltest::UnitTest {                                            \
+    public:                                                                                     \
+        test_name()                                                                             \
+        {                                                                                       \
+            smalltest::TestRegistry::GetInstance()->RegisterTest(this, #test_name);             \
+        }                                                                                       \
+    protected:                                                                                  \
+        void Run() override;                                                                    \
+    } test_name;                                                                                \
     void test_name::Run()
 
-#define EXPECT(expr) do                                                                     \
-    {                                                                                       \
-        if (!(expr))                                                                        \
-        {                                                                                   \
-            smalltest::TestRegistry::GetInstance()->FailTest(this);                          \
-        }                                                                                   \
+#define EXPECT(expr) do                                                                         \
+    {                                                                                           \
+        if (!(expr))                                                                            \
+        {                                                                                       \
+            smalltest::TestRegistry::GetInstance()->FailTest(this);                             \
+        }                                                                                       \
     } while (false)
 
-#define ASSERT(expr) do                                                                     \
-    {                                                                                       \
-        if (!(expr))                                                                        \
-        {                                                                                   \
-            smalltest::TestRegistry::GetInstance()->FailTest(this);                          \
-            return;                                                                         \
-        }                                                                                   \
+#define ASSERT(expr) do                                                                         \
+    {                                                                                           \
+        if (!(expr))                                                                            \
+        {                                                                                       \
+            smalltest::TestRegistry::GetInstance()->FailTest(this);                             \
+            return;                                                                             \
+        }                                                                                       \
     } while (false)
