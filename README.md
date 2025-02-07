@@ -1,5 +1,6 @@
 # Smalltest
-This repo is a companion to a blog post of mine, where I chronicle how a
+This repo is a companion to a [blog post of
+mine](https://markau.dev/posts/roll-your-own-gtest/), where I chronicle how a
 barebones unit test framework like this one can be created. It contains the
 implementation in `src/smalltest.hpp`. Running `make` in the `examples`
 directory will build all examples mentioned in the blogpost (plus a couple
